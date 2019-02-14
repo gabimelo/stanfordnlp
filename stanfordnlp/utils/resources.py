@@ -43,7 +43,7 @@ def build_default_config(treebank, models_path):
         default_config['lemma_batch_size'] = 5000
     treebank_dir = "{}/{}_models".format(models_path, treebank)
     for processor in default_config['processors'].split(','):
-        model_file_ending = "{}.pt".fomart(processor_to_ending[processor])
+        model_file_ending = "{}.pt".format(processor_to_ending[processor])
         default_config["{}_model_path".format(processor)] = "{}/{}_{}".format(treebank_dir, treebank, model_file_ending)
         if processor in ['pos', 'depparse']:
             default_config["{}_pretrain_path".format(processor)] = "{}/{}.pretrain.pt".format(treebank_dir, treebank)
