@@ -172,7 +172,7 @@ class Token:
         self._text = value
 
     def __repr__(self):
-        return f"<{self.__class__.__name__} index={self.index};words={self.words}>"
+        return "<{} index={};words={}>".format(self.__class__.__name__, self.index, self.words)
 
 class Word:
 
@@ -303,4 +303,4 @@ class Word:
         features = ['index', 'text', 'lemma', 'upos', 'xpos', 'feats', 'governor', 'dependency_relation']
         feature_str = ";".join(["{}={}".format(k, getattr(self, k)) for k in features if getattr(self, k) is not None])
 
-        return f"<{self.__class__.__name__} {feature_str}>"
+        return "<{} {}>".format(self.__class__.__name__, feature_str)

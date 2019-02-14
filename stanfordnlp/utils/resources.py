@@ -41,12 +41,12 @@ def build_default_config(treebank, models_path):
     if treebank == 'vi_vtb':
         default_config['lemma_use_identity'] = True
         default_config['lemma_batch_size'] = 5000
-    treebank_dir = f"{models_path}/{treebank}_models"
+    treebank_dir = "{}/{}_models".format(models_path, treebank)
     for processor in default_config['processors'].split(','):
-        model_file_ending = f"{processor_to_ending[processor]}.pt"
-        default_config[f"{processor}_model_path"] = f"{treebank_dir}/{treebank}_{model_file_ending}"
+        model_file_ending = "{}.pt".fomart(processor_to_ending[processor])
+        default_config["{}_model_path".format(processor)] = "{}/{}_{}".format(treebank_dir, treebank, model_file_ending)
         if processor in ['pos', 'depparse']:
-            default_config[f"{processor}_pretrain_path"] = f"{treebank_dir}/{treebank}.pretrain.pt"
+            default_config["{}_pretrain_path".format(processor)] = "{}/{}.pretrain.pt".format(treebank_dir, treebank)
     return default_config
 
 
@@ -63,10 +63,10 @@ def load_config(config_file_path):
 # download a ud models zip file
 def download_ud_model(lang_name, resource_dir=None, should_unzip=True, confirm_if_exists=False):
     # ask if user wants to download
-    if resource_dir is not None and os.path.exists(f"{resource_dir}/{lang_name}_models"):
+    if resource_dir is not None and os.path.exists("{}/{}_models".format(resource_dir, lang_name)):
         if confirm_if_exists:
             print("")
-            print(f"The model directory already exists at \"{resource_dir}/{lang_name}_models\". Do you want to download the models again? [y/N]")
+            print("The model directory already exists at \"{}/{}_models\". Do you want to download the models again? [y/N]".format(resource_dir, lang_name))
             should_download = input()
             should_download = should_download.strip().lower() in ['yes', 'y']
         else:
@@ -131,7 +131,7 @@ def download(download_label, resource_dir=None, confirm_if_exists=False):
     if download_label in conll_shorthands:
         download_ud_model(download_label, resource_dir=resource_dir, confirm_if_exists=confirm_if_exists)
     elif download_label in default_treebanks:
-        print(f'Using the default treebank "{default_treebanks[download_label]}" for language "{download_label}".')
+        print('Using the default treebank "{}" for language "{}".'.format(default_treebanks[download_label], download_label))
         download_ud_model(default_treebanks[download_label], resource_dir=resource_dir, confirm_if_exists=confirm_if_exists)
     else:
-        raise ValueError(f'The language or treebank "{download_label}" is not currently supported by this function. Please try again with other languages or treebanks.')
+        raise ValueError('The language or treebank "{}" is not currently supported by this function. Please try again with other languages or treebanks.'.format(download_label))
