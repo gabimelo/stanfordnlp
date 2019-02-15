@@ -1,4 +1,4 @@
-Used this fork to try to make this library compatible with Python 3.5. Fixed sintax that was breaking (usage of new Python 3.6 string formating with f"{}" sintax). However, couldn't get it to work, due to the following error:
+Used this fork to try to make this library compatible with Python 3.5. Fixed sintax that was breaking (usage of new Python 3.6 string formating with `f"{}"` sintax). However, couldn't get it to work, due to the following error:
 
 ```
 RuntimeError: Error(s) in loading state_dict for Tagger:
