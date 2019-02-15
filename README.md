@@ -1,3 +1,38 @@
+Used this fork to try to make this library compatible with Python 3.5. Fixed sintax that was breaking (usage of new Python 3.6 string formating with f"{}" sintax). However, couldn't get it to work, due to the following error:
+
+```
+RuntimeError: Error(s) in loading state_dict for Tagger:
+	size mismatch for ufeats_clf.1.W_bilin.weight: copying a param with shape torch.Size([6, 101, 51]) from checkpoint, the shape in current model is torch.Size([5, 101, 51]).
+	size mismatch for ufeats_clf.1.W_bilin.bias: copying a param with shape torch.Size([6]) from checkpoint, the shape in current model is torch.Size([5]).
+	size mismatch for ufeats_clf.2.W_bilin.weight: copying a param with shape torch.Size([6, 101, 51]) from checkpoint, the shape in current model is torch.Size([5, 101, 51]).
+	size mismatch for ufeats_clf.2.W_bilin.bias: copying a param with shape torch.Size([6]) from checkpoint, the shape in current model is torch.Size([5]).
+	size mismatch for ufeats_clf.3.W_bilin.weight: copying a param with shape torch.Size([7, 101, 51]) from checkpoint, the shape in current model is torch.Size([6, 101, 51]).
+	size mismatch for ufeats_clf.3.W_bilin.bias: copying a param with shape torch.Size([7]) from checkpoint, the shape in current model is torch.Size([6]).
+	size mismatch for ufeats_clf.4.W_bilin.weight: copying a param with shape torch.Size([5, 101, 51]) from checkpoint, the shape in current model is torch.Size([8, 101, 51]).
+	size mismatch for ufeats_clf.4.W_bilin.bias: copying a param with shape torch.Size([5]) from checkpoint, the shape in current model is torch.Size([8]).
+	size mismatch for ufeats_clf.5.W_bilin.weight: copying a param with shape torch.Size([7, 101, 51]) from checkpoint, the shape in current model is torch.Size([6, 101, 51]).
+	size mismatch for ufeats_clf.5.W_bilin.bias: copying a param with shape torch.Size([7]) from checkpoint, the shape in current model is torch.Size([6]).
+	size mismatch for ufeats_clf.6.W_bilin.weight: copying a param with shape torch.Size([6, 101, 51]) from checkpoint, the shape in current model is torch.Size([7, 101, 51]).
+	size mismatch for ufeats_clf.6.W_bilin.bias: copying a param with shape torch.Size([6]) from checkpoint, the shape in current model is torch.Size([7]).
+	size mismatch for ufeats_clf.7.W_bilin.weight: copying a param with shape torch.Size([7, 101, 51]) from checkpoint, the shape in current model is torch.Size([6, 101, 51]).
+	size mismatch for ufeats_clf.7.W_bilin.bias: copying a param with shape torch.Size([7]) from checkpoint, the shape in current model is torch.Size([6]).
+	size mismatch for ufeats_clf.8.W_bilin.weight: copying a param with shape torch.Size([6, 101, 51]) from checkpoint, the shape in current model is torch.Size([9, 101, 51]).
+	size mismatch for ufeats_clf.8.W_bilin.bias: copying a param with shape torch.Size([6]) from checkpoint, the shape in current model is torch.Size([9]).
+	size mismatch for ufeats_clf.9.W_bilin.weight: copying a param with shape torch.Size([7, 101, 51]) from checkpoint, the shape in current model is torch.Size([5, 101, 51]).
+	size mismatch for ufeats_clf.9.W_bilin.bias: copying a param with shape torch.Size([7]) from checkpoint, the shape in current model is torch.Size([5]).
+	size mismatch for ufeats_clf.11.W_bilin.weight: copying a param with shape torch.Size([9, 101, 51]) from checkpoint, the shape in current model is torch.Size([7, 101, 51]).
+	size mismatch for ufeats_clf.11.W_bilin.bias: copying a param with shape torch.Size([9]) from checkpoint, the shape in current model is torch.Size([7]).
+	size mismatch for ufeats_clf.12.W_bilin.weight: copying a param with shape torch.Size([5, 101, 51]) from checkpoint, the shape in current model is torch.Size([6, 101, 51]).
+	size mismatch for ufeats_clf.12.W_bilin.bias: copying a param with shape torch.Size([5]) from checkpoint, the shape in current model is torch.Size([6]).
+	size mismatch for ufeats_clf.13.W_bilin.weight: copying a param with shape torch.Size([6, 101, 51]) from checkpoint, the shape in current model is torch.Size([7, 101, 51]).
+	size mismatch for ufeats_clf.13.W_bilin.bias: copying a param with shape torch.Size([6]) from checkpoint, the shape in current model is torch.Size([7]).
+	size mismatch for ufeats_clf.15.W_bilin.weight: copying a param with shape torch.Size([8, 101, 51]) from checkpoint, the shape in current model is torch.Size([7, 101, 51]).
+	size mismatch for ufeats_clf.15.W_bilin.bias: copying a param with shape torch.Size([8]) from checkpoint, the shape in current model is torch.Size([7]).
+	size mismatch for ufeats_clf.16.W_bilin.weight: copying a param with shape torch.Size([5, 101, 51]) from checkpoint, the shape in current model is torch.Size([6, 101, 51]).
+	size mismatch for ufeats_clf.16.W_bilin.bias: copying a param with shape torch.Size([5]) from checkpoint, the shape in current model is torch.Size([6]).
+```
+
+
 # StanfordNLP: A Python NLP Library for Many Human Languages
 
 [![Travis Status](https://travis-ci.com/stanfordnlp/stanfordnlp.svg?token=RPNzRzNDQRoq2x3J2juj&branch=master)](https://travis-ci.com/stanfordnlp/stanfordnlp)
